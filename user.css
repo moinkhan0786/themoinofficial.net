@@ -1,0 +1,138 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+/* Header Styles */
+header {
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.menu li a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* User Login Styles */
+#user-login {
+    margin: 40px 0;
+}
+
+#user-login h2 {
+    margin-bottom: 20px;
+}
+
+#user-login form div {
+    margin-bottom: 10px;
+}
+
+#user-login label {
+    display: block;
+}
+
+#user-login input[type="email"],
+#user-login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* User Details Styles */
+#user-details {
+    display: none;
+    margin-top: 40px;
+}
+
+#user-details h2 {
+    margin-bottom: 20px;
+}
+
+#user-details div {
+    margin-bottom: 20px;
+}
+
+/* Subscription Form Styles */
+#subscription-form {
+    display: none;
+}
+
+#subscription-form p {
+    margin-top: 10px;
+}
+
+/* Settings Form Styles */
+#settings-form {
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-menu li a {
+    color: #333;
+    text-decoration: none;
+}
+

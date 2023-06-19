@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="user.css">
+    <script>
+        // Function to handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Get form input values
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Perform login validation (replace with your actual validation logic)
+            if (email && password) {
+                // Successful login, show user details and subscription form
+                document.getElementById('user-details').style.display = 'block';
+                document.getElementById('subscription-form').style.display = 'block';
+
+                // Update user details section
+                document.getElementById('user-name').textContent = email;
+                document.getElementById('user-email').textContent = email;
+            } else {
+                // Invalid login, show error message
+                document.getElementById('login-error').textContent = 'Invalid email or password.';
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+  const userLoginForm = document.getElementById("userLoginForm");
+  const userPage = document.getElementById("user-page");
+
+  userLoginForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    // Perform login validation here, e.g., check email and password
+
+    // Simulating successful login
+    const loggedInUser = {
+      name: "John Doe",
+      subscriptionExpiry: "2024-06-19" // Assuming format: YYYY-MM-DD
+    };
+    
+    // Hide login form and display user page
+    userLoginForm.style.display = "none";
+    userPage.style.display = "block";
+
+    // Update user details in the user page
+    document.getElementById("user-name").textContent = loggedInUser.name;
+    document.getElementById("subscription-expiry").textContent = loggedInUser.subscriptionExpiry;
+  });
+});
+
+        // Function to handle subscription form submission
+        function handleSubscriptionFormSubmit(event) {
+            event.preventDefault();
+
+            // Get form input values
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const subscriptionDate = new Date();
+
+            // Calculate subscription expiry date (1 year from current date)
+            const expiryDate = new Date();
+            expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+
+            // Update subscription expiry date
+            document.getElementById('expiry-date').textContent = expiryDate.toDateString();
+
+            // Display success message
+            document.getElementById('subscription-success').style.display = 'block';
+        }
+
+        // Function to handle settings form submission
+        function handleSettingsFormSubmit(event) {
+            event.preventDefault();
+
+            // Get form input values
+            const firstName = document.getElementById('settings-first-name').value;
+            const lastName = document.getElementById('settings-last-name').value;
+            const email = document.getElementById('settings-email').value;
+
+            // Update user details section
+            document.getElementById('user-name').textContent = firstName + ' ' + lastName;
+            document.getElementById('user-email').textContent = email;
+
+            // Display success message
+            document.getElementById('settings-success').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="index.html" class="logo">Next Entrepreneur</a>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="user-login">
+        <div class="container">
+            <h2>User Login</h2>
+            <form id="login-form" onsubmit="handleFormSubmit(event)">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p id="login-error" class="error"></p>
+            </form>
+        </div>
+    </section>
+
+    <section id="user-details" style="display: none;">
+        <div class="container">
+            <h2>Welcome, <span id="user-name"></span>!</h2>
+            <div>
+                <h3>User Details</h3>
+                <p><strong>Name:</strong> <span id="user-email"></span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
+            </div>
+            <div>
+                <h3>Subscription</h3>
+                <form id="subscription-form" onsubmit="handleSubscriptionFormSubmit(event)">
+                    <div>
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div>
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                    <button type="submit">Subscribe</button>
+                    <p id="subscription-success" class="success" style="display: none;">Subscription successful!</p>
+                    <p><strong>Expiry Date:</strong> <span id="expiry-date"></span></p>
+                </form>
+            </div>
+            <div>
+                <h3>Settings</h3>
+                <form id="settings-form" onsubmit="handleSettingsFormSubmit(event)">
+                    <div>
+                        <label for="settings-first-name">First Name:</label>
+                        <input type="text" id="settings-first-name" name="settings-first-name" required>
+                    </div>
+                    <div>
+                        <label for="settings-last-name">Last Name:</label>
+                        <input type="text" id="settings-last-name" name="settings-last-name" required>
+                    </div>
+                    <div>
+                        <label for="settings-email">Email:</label>
+                        <input type="email" id="settings-email" name="settings-email" required>
+                    </div>
+                    <button type="submit">Update</button>
+                    <p id="settings-success" class="success" style="display: none;">Settings updated successfully!</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 Next Entrepreneur. All rights reserved.</p>
+                <ul class="footer-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
